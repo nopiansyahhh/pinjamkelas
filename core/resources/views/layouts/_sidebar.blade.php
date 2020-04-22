@@ -43,6 +43,24 @@
               </i>&nbsp;&nbsp;&nbsp;<span>Status Peminjaman</span><span class="sr-only"></span>
             </a>
           </li>
+          <li class="">
+            <a class="nav-link" href="{{url('dosenlist')}}">
+              <i class="fa fa-check-square-o"></i>
+              </i>&nbsp;&nbsp;&nbsp;<span>Data Dosen</span><span class="sr-only"></span>
+            </a>
+          </li>
+          <li class="">
+            <a class="nav-link" href="{{url('datamatkul')}}">
+              <i class="fa fa-check-square-o"></i>
+              </i>&nbsp;&nbsp;&nbsp;<span>Data Matkul</span><span class="sr-only"></span>
+            </a>
+          </li>
+          <li class="">
+            <a class="nav-link" href="{{url('dataabsen')}}">
+              <i class="fa fa-check-square-o"></i>
+              </i>&nbsp;&nbsp;&nbsp;<span>Data Absensi</span><span class="sr-only"></span>
+            </a>
+          </li>
            <li class="">
             <a class="nav-link" href="{{url('logout')}}">
               <i class="fa fa-sign-out"></i>

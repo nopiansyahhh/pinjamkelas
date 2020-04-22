@@ -81,14 +81,14 @@
 				<div class="form-group row">
 					<label class="col-sm-2 col-sm-offset-3 col-form-label">NIM</label>
 					<div class="col-sm-5">
-						<input type="text" name="nim" class="form-control" value="0{{$countnim}}" readonly="">
+						<input type="text" name="nip" class="form-control" value="0{{$countnim}}" readonly="">
 						<small class="form-text text-muted">Secara Default digunakan sebagai password mahasiswa</small>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label class="col-sm-2 col-sm-offset-3 col-form-label">Nama</label>
 					<div class="col-sm-5">
-						<input type="text" name="nama" class="form-control">
+						<input type="text" name="name" class="form-control">
 					</div>
 				</div>
 				<div class="form-group row">

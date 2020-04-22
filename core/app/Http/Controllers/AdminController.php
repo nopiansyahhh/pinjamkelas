@@ -32,7 +32,8 @@ class AdminController extends Controller
     		'name' => $request->name,
     		'nim' => $request->nim,
     		'password' => bcrypt($request->password),
-    		'remember_token' => str_random(60),
+			'remember_token' => str_random(60),
+			'api_token' => str_random(100),
     		'role' => $request->role,
 
     	]);

@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+	route::get('/pinjamkelas','Api\PinjamCtrl@index');
+	route::get('/statuspeminjaman','Api\PinjamCtrl@statusPeminjaman');
+	route::post('/createpeminjaman','Api\PinjamCtrl@createPeminjaman');
+	route::get('/pinjamkelas/{id}/booking','PinjamController@pinjamViewAdd');
+	route::post('/pinjamkelas/{id}/bookingadd','PinjamController@pinjamAdd');

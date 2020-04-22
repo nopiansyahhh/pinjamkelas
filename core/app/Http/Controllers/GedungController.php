@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\gedung;
+use App\ruangan;
 use Response;
 use DB;
 class GedungController extends Controller
@@ -77,6 +78,11 @@ class GedungController extends Controller
         $data = gedung::find($id);
         $data->update($request->all());
 
+        $ruangan = DB::table('ruangan')
+                    ->where('gedung_id',$id)
+                    ->update(['status' => $request->status]);
+
+
         return redirect('datagedung')->with('success','data berhasil di update');
     }
 
@@ -84,6 +90,7 @@ class GedungController extends Controller
     {
     	$data = gedung::find($id);
     	$data->delete();
+        $ruangan = ruangan::where('gedung_id',$id)->delete();
     	return redirect('datagedung')->with('success','Data berhasil di Hapus');
     }
 

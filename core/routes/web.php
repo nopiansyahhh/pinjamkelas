@@ -31,20 +31,25 @@ route::post('/postlogin','AuthController@postLogin');
 	route::post('/gedungajaxedit/{id}/update','GedungController@gedungAjaxUpdate');
 	route::get('/gedungajax/{id}/delete','GedungController@gedungAjaxDel');
 
-route::group(['middleware' => ['auth','roleCheck:administrator,']], function(){
+route::group(['middleware' => ['auth','roleCheck:administrator,dosen,']], function(){
 	Route::get('/admindashboard','MahasiswaController@adminDashboard');
 	route::get('/adminlist','AdminController@indexAdmin');
 	route::post('/adminadd','AdminController@simpanAdmin');
 	route::get('/adminlist/{id}/delete','AdminController@delAdmin');
 	route::get('/adminlist/{id}/edit','AdminController@editAdmin');
 	route::post('/adminlist/{id}/update','AdminController@updateAdmin');
+	route::get('/dosenlist','DosenController@index');
+	route::post('/dosenadd','DosenController@store');
+	route::get('/datamatkul','MatkulController@index');
+	route::post('/matkuladd','MatkulController@store');
+	route::get('/dataabsen','AbsenController@index');
 	//route mahasiswa user
 	//Route::get('/mahasiswaprofile','MahasiswaController@mahasiswaProfile');
 	//Route::get('/riwayatpinjaman','MahasiswaController@mahasiswaRiwayatPinjaman');
 
 });
 
-route::group(['middleware' => ['auth','roleCheck:baak,administrator,']], function(){
+route::group(['middleware' => ['auth','roleCheck:baak,administrator,dosen,']], function(){
 	
 	Route::get('/admindashboard','MahasiswaController@adminDashboard');
 	//route mahasiswa admin
@@ -80,7 +85,7 @@ route::group(['middleware' => ['auth','roleCheck:baak,administrator,']], functio
 	route::post('/konfirmasi/{id}/update','StatusPinjamController@konfirmUpdate');
 });
 
-route::group(['middleware' => ['auth','roleCheck:mahasiswa,baak,administrator,']], function(){
+route::group(['middleware' => ['auth','roleCheck:mahasiswa,baak,administrator,dosen,']], function(){
 
 	route::get('/dashboard','MahasiswaController@dashboard');
 	//route pinjamkelas

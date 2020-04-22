@@ -38,11 +38,11 @@
 							@if (Auth::user()->role == 'admin') <th>Aksi</th> @endif
 					</thead>
 					<tbody class="text-center">
-						<?php $no=0;?>
-						@foreach($data as $datas)
-						<?php $no++;?>
+						<?php //$no=0;?>
+						@foreach($data as $no => $datas)
+						<?php //$no++;?>
 						<tr>
-							<td>{{$no}}</td>
+							<td>{{ ++$no + ($data->currentPage()-1) * $data->perPage() }}</td>
 							<td>{{$datas->mahasiswa_id}}</td>
 							<td>{{$datas->gedung}}.{{$datas->ruangan}}</td>
 							<td>{{$datas->hari}} {{substr($datas->jamawal,0,5)}} - {{substr($datas->jamakhir,0,5)}}</td>
@@ -64,7 +64,10 @@
 						@endforeach
 					</tbody>
 				</table>
-				<div class="pull-right">{{$data->links()}}</div>
+				<div class="pull-right">{{$data->appends(['statuspinjamsearch' => request('statuspinjamsearch')])->links()}}
+
+				{{--$data->links()--}}
+				</div>
 			</div>
 		</div>
 	</div>

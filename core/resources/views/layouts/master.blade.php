@@ -26,6 +26,7 @@
         <script src="{{asset('assets/js/jquery.min.js')}}"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>-->
         <script src="{{asset('assets/chart/code/highcharts.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('assets/pace-progress/themes/blue/pace-theme-loading-bar.css')}}">
         <style type="text/css">
           th{
             text-align: center;
@@ -59,6 +60,7 @@
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/mhs/main.js')}}"></script>
     <script src="{{asset('assets/js/mhs/theme.js')}}"></script>
+    <script src="{{asset('assets/pace-progress/pace.min.js')}}"></script>
     <script type="text/javascript">
       $(document).ready(function(){
         //$('#spinner').hide();

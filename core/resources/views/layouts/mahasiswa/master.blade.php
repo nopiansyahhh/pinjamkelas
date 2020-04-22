@@ -25,6 +25,7 @@
         <link href="{{--asset('assets/css/app.css')--}}" rel="stylesheet">
         <script src="{{asset('assets/js/jquery.min.js')}}"></script>
         <script src="{{asset('assets/chart/code/highcharts.js')}}"></script>
+        <link rel="stylesheet" href="{{asset('assets/pace-progress/themes/blue/pace-theme-loading-bounce.css')}}">
 
     </head>
     <body>
@@ -53,6 +54,7 @@
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/mhs/main.js')}}"></script>
     <script src="{{asset('assets/js/mhs/theme.js')}}"></script>
+    <script src="{{asset('assets/pace-progress/pace.min.js')}}"></script>
     @yield('script')
     </body>
 </html>

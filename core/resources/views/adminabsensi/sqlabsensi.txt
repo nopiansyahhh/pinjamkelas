@@ -1,0 +1,5 @@
+SELECT krs.dosenmatkul_id, krs.mahasiswa_id, users.name as dosen, matkul.nama as matkul, absensi.tapin, absensi.tapout from krs 
+INNER JOIN dosenmatkul on krs.dosenmatkul_id = dosenmatkul.id
+INNER JOIN matkul on dosenmatkul.matkul_id = matkul.id
+INNER JOIN users on dosenmatkul.dosen_id = users.nim
+left JOIN absensi on absensi.mahasiswa_id = users.nim
