@@ -31,11 +31,11 @@
                         <ul><li>{{session('danger')}}</li></ul>
                     </div>
                 @endif 
-                <span class="text-center"><h2><b>Pinjam</b> Kelas Keles</h2></span>
+                <span class="text-center"><h2><b>Absensi</b></h2></span>
                     <form accept-charset="utf-8" class="form-vertical" id="login" method="POST" action="{{url('/postlogin')}}">
                         @CSRF
                     <div class="form-group has-feedback">
-                        <input class="form-control" required id="email" type="text" name="nim" placeholder="masukkan NIM">
+                        <input class="form-control" required id="email" type="text" name="nim" placeholder="masukkan user login">
                         <span class="fa fa-user-circle form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -69,7 +69,7 @@
 
 
         <div class="footer">
-            <p><strong>Copyright &copy; 2019 <a href='#' target='_blank'>SISA-SISA TENAGA</a>.</strong> All rights reserved.</p>
+            <p><strong>Copyright &copy; 2020 <a href='#' target='_blank'>SISA-SISA TENAGA</a>.</strong> All rights reserved.</p>
         </div>
     <script src="{{asset('assets/js/mhs/app.js')}}"></script>
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>

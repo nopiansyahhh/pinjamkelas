@@ -44,7 +44,7 @@
             </a>
           </li>
           <li class="">
-            <a class="nav-link" href="{{url('dosenlist')}}">
+            <a class="nav-link" href="{{route('dosendata')}}">
               <i class="fa fa-check-square-o"></i>
               </i>&nbsp;&nbsp;&nbsp;<span>Data Dosen</span><span class="sr-only"></span>
             </a>

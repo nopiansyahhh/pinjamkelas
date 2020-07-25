@@ -31,7 +31,7 @@ route::post('/postlogin','AuthController@postLogin');
 	route::post('/gedungajaxedit/{id}/update','GedungController@gedungAjaxUpdate');
 	route::get('/gedungajax/{id}/delete','GedungController@gedungAjaxDel');
 
-route::group(['middleware' => ['auth','roleCheck:administrator,dosen,']], function(){
+route::group(['middleware' => ['auth','roleCheck:administrator,']], function(){
 	Route::get('/admindashboard','MahasiswaController@adminDashboard');
 	route::get('/adminlist','AdminController@indexAdmin');
 	route::post('/adminadd','AdminController@simpanAdmin');
@@ -49,7 +49,28 @@ route::group(['middleware' => ['auth','roleCheck:administrator,dosen,']], functi
 
 });
 
-route::group(['middleware' => ['auth','roleCheck:baak,administrator,dosen,']], function(){
+route::group(['middleware' => ['auth','roleCheck:dosen,']], function(){
+	Route::get('/dosendashboard','DosenController@dosenDashboard')->name('dosendashboard');
+	Route::get('/dosenmatkul','DosenController@dosenMatkul');
+	Route::get('/dosenmatkul/{id}/detail','DosenController@detailMatkul')->name('detailmatkul');
+	Route::get('/dosenabsen','DosenController@dosenAbsen');
+	Route::get('/dosendata','DosenController@dataDosen')->name('dosendata');
+	Route::post('/dosendataupdate','DosenController@dataDosenUpdate')->name('dosendataupdate');
+	Route::get('/tappudatenonaktif/{id}','DosenController@tapNonAktif')->name('tapnonaktif');
+	Route::get('/tappudateinaktif/{id}','DosenController@tapInAktif')->name('tapinaktif');
+	Route::get('/tappudateoutaktif/{id}','DosenController@tapOutAktif')->name('tapoutaktif');
+	Route::get('/tappudateaktif/{id}','DosenController@tapAktif')->name('tapaktif');
+	Route::post('/updatestatushadir','DosenController@statusHadir')->name('statushadir');
+	Route::post('/generatetapin/{id}','DosenController@generateTapIn')->name('generatetapin');
+	Route::post('/generatetapout/{id}','DosenController@generateTapOut')->name('generatetapout');
+	Route::get('/genstatusaktif/{id}','DosenController@genStatusAktif')->name('genaktif');
+	Route::get('/genstatusdisable/{id}','DosenController@genStatusDisable')->name('gendisable');
+	Route::post('/dosenabsenupdate','DosenController@dosenAbsenTopik')->name('dosenabsenupdate');
+	Route::get('/dosenabsendetail','DosenController@absenDetailDosen')->name('dosenabsendetail');
+
+});
+
+route::group(['middleware' => ['auth','roleCheck:baak,administrator,']], function(){
 	
 	Route::get('/admindashboard','MahasiswaController@adminDashboard');
 	//route mahasiswa admin
@@ -85,7 +106,7 @@ route::group(['middleware' => ['auth','roleCheck:baak,administrator,dosen,']], f
 	route::post('/konfirmasi/{id}/update','StatusPinjamController@konfirmUpdate');
 });
 
-route::group(['middleware' => ['auth','roleCheck:mahasiswa,baak,administrator,dosen,']], function(){
+route::group(['middleware' => ['auth','roleCheck:mahasiswa,baak,administrator,']], function(){
 
 	route::get('/dashboard','MahasiswaController@dashboard');
 	//route pinjamkelas
@@ -99,6 +120,12 @@ route::group(['middleware' => ['auth','roleCheck:mahasiswa,baak,administrator,do
 	Route::get('/mahasiswaprofile/{id}/profile','MahasiswaController@mahasiswaProfile');
 	route::post('/mahasiswa/{id}/update','MahasiswaController@updateMahasiswa');
 	Route::get('/riwayatpinjaman','MahasiswaController@mahasiswaRiwayatPinjaman');
+	Route::resource('absenmahasiswa', 'AbsenMhsCtrl');
+	Route::post('/tapin','AbsenMhsCtrl@tapin')->name('tapin');
+	Route::post('/tapout','AbsenMhsCtrl@tapout')->name('tapout');
+	Route::post('/tokenIn/{id}','AbsenMhsCtrl@absenTokenIn')->name('absentokenin');
+	Route::post('/tokenOut/{id}','AbsenMhsCtrl@absenTokenOut')->name('absentokenout');
+	Route::get('/mhsdashboardabsen','AbsenMhsCtrl@dashboardmhs')->name('dashboardabsen');
 });
 
 /*

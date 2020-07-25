@@ -53,7 +53,7 @@
         </section>
             <footer>
             <div class="container text-center">
-                <p><strong>Copyright &copy; 2019 Night Family</strong> All rights reserved.</p>
+                <p><strong>Copyright &copy; 2020 Night Family</strong> All rights reserved.</p>
             </div>
         </footer>
     <script src="{{asset('assets/js/mhs/app.js')}}"></script>

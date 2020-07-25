@@ -18,10 +18,12 @@ class AuthController extends Controller
         	
             if(Auth::Attempt($request->only('nim','password'))){
                 $role = Auth::user()->role;
-        		if($role == 'baak' || $role == 'administrator' || $role == 'dosen'){
+        		if($role == 'baak' || $role == 'administrator'){
                     return redirect('admindashboard');
+                }elseif($role == 'dosen'){
+                    return redirect('dosendashboard');
                 }else{
-                    return redirect('dashboard');
+                    return redirect('mhsdashboardabsen');
                 }
         	}else{
         		return redirect('login')->with('danger','coba inget-inget lagi NIM dan passwordnya. emang kadang suka lupa, sama kaya dia yang sering lupain kamu');                
